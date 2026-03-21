@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BimsaraPOS - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="logo-section">
+            <div class="logo-icn">
+                <i class="fa-solid fa-trophy fa-2x"></i>
+            </div>
+            <h1>Bimsara<span>POS</span></h1>
+            <p>Point of Sale System</p>
+        </div>
+
+        <form action="dashboard.html" method="get">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-wrapper">
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    <i class="fa-solid fa-user "></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+            </div>
+
+            <button type="submit" class="login-btn">
+                <i class="fa-solid fa-right-to-bracket"></i> Sign In
+            </button>
+        </form>
+
+        <div class="divider"></div>
+        
+        <p class="copyright">
+            &copy; 2026 <span>BimsaraPOS</span>. All rights reserved.
+        </p>
+    </div>
+</body>
+</html>
