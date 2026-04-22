@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BimsaraPOS - SPA</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome (Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- login page -->
+    <section id="login-section" class="view-section active">
+        <div class="login-container glass-panel">
+            <div class="login-header">
+                <div class="logo-icon"><i class="fa-solid fa-cube"></i></div>
+                <h2>BimsaraPOS</h2>
+                <p>Point of Sale System</p>
+            </div>
+            <form id="login-form">
+                <div class="input-group">
+                    <label>Username</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="text" id="login-username" placeholder="Enter username" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="login-password" placeholder="Enter password" autocomplete="off"
+                            required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary w-100 btn-glow">LOGIN</button>
+            </form>
+            <div class="login-footer">
+                <p>&copy; 2026 BimsaraPOS. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="app-wrapper" class="hidden">
+
+        <!-- header nav bar -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo-text"><i class="fa-solid fa-cube logo-accent"></i> BimsaraPOS</div>
+                <nav class="main-nav">
+                    <button class="nav-btn active" data-target="dashboard-section"><i class="fa-solid fa-house"></i>
+                        Home</button>
+                    <button class="nav-btn" data-target="customers-section"><i class="fa-solid fa-users"></i>
+                        Customers</button>
+                    <button class="nav-btn" data-target="items-section"><i class="fa-solid fa-box-open"></i>
+                        Items</button>
+                    <button class="nav-btn" data-target="orders-section"><i class="fa-solid fa-cart-shopping"></i> Place
+                        Order</button>
+                </nav>
+            </div>
+            <div class="header-right">
+                <button class="icon-btn" data-target="settings-section" title="Settings"><i
+                        class="fa-solid fa-gear"></i></button>
+                <button id="btn-logout" class="btn-danger-outline btn-sm"><i class="fa-solid fa-power-off"></i>
+                    Logout</button>
+            </div>
+        </header>
+
+        <main class="app-main">
+
+            <!-- dashboard -->
+            <section id="dashboard-section" class="app-view active">
+                <h2 class="view-title">Dashboard<br><span>Welcome back, Admin. Here is your system overview.</span></h2>
+
+                <div class="metrics-grid">
+                    <div class="metric-card glass-panel flex-row">
+                        <div class="metric-icon icon-green"><i class="fa-solid fa-users"></i></div>
+                        <div class="metric-info">
+                            <h3>TOTAL CUSTOMERS</h3>
+                            <p id="dash-total-customers">0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card glass-panel flex-row">
+                        <div class="metric-icon icon-orange"><i class="fa-solid fa-box-open"></i></div>
+                        <div class="metric-info">
+                            <h3>TOTAL ITEMS</h3>
+                            <p id="dash-total-items">0</p>
+                        </div>
+                    </div>
+                    <div class="metric-card glass-panel flex-row">
+                        <div class="metric-icon icon-blue"><i class="fa-solid fa-cart-shopping"></i></div>
+                        <div class="metric-info">
+                            <h3>TOTAL ORDERS</h3>
+                            <p id="dash-total-orders">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-container glass-panel mt-4">
+                    <div class="table-header">
+                        <h3>Recent Orders</h3>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ORDER ID</th>
+                                <th>CUSTOMER</th>
+                                <th>DATE</th>
+                                <th>TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dash-orders-table-body">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+            <!-- manage customers -->
+            <section id="customers-section" class="app-view hidden">
+                <h2 class="view-title">Manage Customers</h2>
+                <div class="split-layout">
+                    <!-- Form Side -->
+                    <div class="form-side glass-panel">
+                        <h3>Customer Details</h3>
+                        <form id="customer-form">
+                            <div class="input-group">
+                                <label>Customer ID</label>
+                                <input type="text" id="cust-id" readonly>
+                            </div>
+                            <div class="input-group">
+                                <label>Full Name</label>
+                                <input type="text" id="cust-name" placeholder="Enter full name" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Address</label>
+                                <input type="text" id="cust-address" placeholder="Enter address" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Salary</label>
+                                <input type="number" id="cust-salary" step="0.01" placeholder="Enter salary" required>
+                            </div>
+                            <div class="form-actions mt-3">
+                                <button type="submit" id="btn-save-customer" class="btn-primary">Save</button>
+                                <button type="button" id="btn-update-customer" class="btn-info">Update</button>
+                                <button type="button" id="btn-delete-customer" class="btn-danger">Delete</button>
+                                <button type="button" id="btn-clear-customer" class="btn-secondary">Clear</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Table Side -->
+                    <div class="table-side glass-panel">
+                        <div class="table-header">
+                            <h3>All Customers</h3>
+                            <div class="search-bar">
+                                <input type="text" id="search-customer" placeholder="Search...">
+                                <button class="btn-icon-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table selectable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>NAME</th>
+                                        <th>ADDRESS</th>
+                                        <th>SALARY</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="customer-table-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- manage items -->
+            <section id="items-section" class="app-view hidden">
+                <h2 class="view-title">Manage Items</h2>
+                <div class="split-layout">
+                    <div class="form-side glass-panel">
+                        <h3>Item Details</h3>
+                        <form id="item-form">
+                            <div class="input-group">
+                                <label>Item Code</label>
+                                <input type="text" id="item-code" readonly>
+                            </div>
+                            <div class="input-group">
+                                <label>Item Name</label>
+                                <input type="text" id="item-name" placeholder="Enter item name" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Unit Price</label>
+                                <input type="number" id="item-price" step="0.01" placeholder="Enter unit price"
+                                    required>
+                            </div>
+                            <div class="input-group">
+                                <label>Quantity</label>
+                                <input type="number" id="item-qty" placeholder="Enter quantity" required>
+                            </div>
+                            <div class="form-actions mt-3">
+                                <button type="submit" id="btn-save-item" class="btn-primary">Save</button>
+                                <button type="button" id="btn-update-item" class="btn-info">Update</button>
+                                <button type="button" id="btn-delete-item" class="btn-danger">Delete</button>
+                                <button type="button" id="btn-clear-item" class="btn-secondary">Clear</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="table-side glass-panel">
+                        <div class="table-header">
+                            <h3>All Items</h3>
+                            <div class="search-bar">
+                                <input type="text" id="search-item" placeholder="Search...">
+                                <button class="btn-icon-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table selectable">
+                                <thead>
+                                    <tr>
+                                        <th>CODE</th>
+                                        <th>NAME</th>
+                                        <th>PRICE</th>
+                                        <th>QTY</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="item-table-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- place orders -->
+            <section id="orders-section" class="app-view hidden">
+                <h2 class="view-title">Place Order</h2>
+                <div class="order-layout">
+                    <div class="order-top-row">
+                        <div class="glass-panel">
+                            <h3>Customer Details</h3>
+                            <div class="grid-2-col">
+                                <div class="input-group">
+                                    <label>Order ID</label>
+                                    <input type="text" id="order-id" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label>Date</label>
+                                    <input type="date" id="order-date" readonly>
+                                </div>
+                                <div class="input-group col-span-2">
+                                    <label>Select Customer</label>
+                                    <select id="select-customer">
+                                        <option value="">-- Select --</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label>Name</label>
+                                    <input type="text" id="order-cust-name" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label>Salary</label>
+                                    <input type="text" id="order-cust-salary" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel">
+                            <h3>Add Items</h3>
+                            <div class="grid-2-col">
+                                <div class="input-group col-span-2">
+                                    <label>Select Item</label>
+                                    <select id="select-item">
+                                        <option value="">-- Select --</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label>Item Name</label>
+                                    <input type="text" id="order-item-name" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label>Price</label>
+                                    <input type="number" id="order-item-price" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label>Qty On Hand</label>
+                                    <input type="number" id="order-item-qtyonhand" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label>Order Qty</label>
+                                    <input type="number" id="order-item-qtyneed">
+                                </div>
+                            </div>
+                            <div class="text-right mt-3">
+                                <button type="button" id="btn-add-to-cart" class="btn-primary">Add</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-bottom-row mt-3">
+                        <div class="table-side glass-panel">
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>CODE</th>
+                                            <th>NAME</th>
+                                            <th>PRICE</th>
+                                            <th>QTY</th>
+                                            <th>TOTAL</th>
+                                            <th>ACTION</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cart-table-body">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="summary-side glass-panel">
+                            <h3>Order Summary</h3>
+                            <div class="summary-line">
+                                <span>Subtotal</span>
+                                <span id="lbl-subtotal">Rs 0.00</span>
+                            </div>
+                            <div class="summary-line">
+                                <span>Discount</span>
+                                <div>
+                                    <input type="number" id="txt-discount" placeholder="0" class="small-input">%
+                                </div>
+                            </div>
+                            <div class="summary-total mt-3">
+                                <span>Total</span>
+                                <span id="lbl-total" class="total-text">Rs 0.00</span>
+                            </div>
+
+                            <hr class="divider">
+
+                            <div class="input-group">
+                                <label>Cash Payment</label>
+                                <input type="number" id="txt-cash" placeholder="Enter Amount">
+                            </div>
+                            <div class="input-group">
+                                <label>Balance</label>
+                                <input type="number" id="txt-balance" readonly placeholder="0.00">
+                            </div>
+
+                            <div class="mt-4">
+                                <button type="button" id="btn-place-order" class="btn-success w-100 btn-glow">Place
+                                    Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- settings page  -->
+            <section id="settings-section" class="app-view hidden">
+                <h2 class="view-title">Settings<br><span>Manage your account and preferences.</span></h2>
+                <div class="split-layout">
+                    <div class="glass-panel">
+                        <h3><i class="fa-solid fa-shield-halved"></i> Account Security</h3>
+                        <form id="settings-form" class="mt-4">
+                            <div class="input-group">
+                                <label>Username</label>
+                                <input type="text" id="setting-username" readonly value="admin">
+                            </div>
+                            <div class="input-group">
+                                <label>Current Password</label>
+                                <input type="password" id="setting-current-pwd" placeholder="Enter current password"
+                                    required>
+                            </div>
+                            <div class="input-group">
+                                <label>New Password</label>
+                                <input type="password" id="setting-new-pwd" placeholder="Enter new password" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Confirm Password</label>
+                                <input type="password" id="setting-confirm-pwd" placeholder="Confirm new password"
+                                    required>
+                            </div>
+                            <button type="submit" class="btn-primary w-100 mt-3">Save Changes</button>
+                        </form>
+                    </div>
+                    <div class="glass-panel">
+                        <h3><i class="fa-solid fa-circle-info"></i> Support & Information</h3>
+                        <div class="mt-4 info-list">
+                            <p><i class="fa-regular fa-envelope"></i>wggachathungabimsara2007@gmail.com</p>
+                            <p><i class="fa-solid fa-phone"></i> +94 76 794 5968</p>
+                            <p class="mt-4 text-muted">Version 1.0.0<br>&copy; 2026 BimsaraPOS. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="app-footer">
+            &copy; 2026 BimsaraPOS. All rights reserved.
+        </footer>
+    </div>
+
+    <script src="db/db.js"></script>
+    <script src="model/CustomerModel.js"></script>
+    <script src="model/ItemModel.js"></script>
+    <script src="model/OrderModel.js"></script>
+    <script src="model/OrderDetailModel.js"></script>
+    <script src="model/UserModel.js"></script>
+    <script src="controller/DashboardController.js"></script>
+    <script src="controller/LoginController.js"></script>
+    <script src="controller/CustomerController.js"></script>
+    <script src="controller/ItemController.js"></script>
+    <script src="controller/OrderController.js"></script>
+    <script src="controller/OrderDetailsController.js"></script>
+    <script src="controller/SettingController.js"></script>
+</body>
+</html>
