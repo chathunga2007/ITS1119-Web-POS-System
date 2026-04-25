@@ -1,3 +1,8 @@
+import { orders, customers, items, orderDetails } from '../db/db.js';
+import { Order } from '../model/OrderModel.js';
+import { OrderDetail } from '../model/OrderDetailModel.js';
+import { updateDashboardMetrics } from './DashboardController.js';
+
 let cart = [];
 
 const generateOrderId = () => {
@@ -43,9 +48,11 @@ document.getElementById('select-customer').addEventListener('change', (e) => {
     const customer = customers.find(c => c.id === custId);
     if (customer) {
         document.getElementById('order-cust-name').value = customer.name;
+        document.getElementById('order-cust-address').value = customer.address;
         document.getElementById('order-cust-salary').value = customer.salary;
     } else {
         document.getElementById('order-cust-name').value = '';
+        document.getElementById('order-cust-address').value = '';
         document.getElementById('order-cust-salary').value = '';
     }
 });

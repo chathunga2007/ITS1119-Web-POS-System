@@ -1,5 +1,5 @@
-const customers = [];
-const items = [];
-const orders = [];
-const orderDetails = [];
-const users = [{ username: 'admin', password: '123' }]; // Default credentials
+export const customers = [];
+export const items = [];
+export const orders = [];
+export const orderDetails = [];
+export const users = [{ username: 'admin', password: '2007' }]; // Default credentials

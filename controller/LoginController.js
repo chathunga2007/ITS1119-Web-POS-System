@@ -1,3 +1,6 @@
+import { users } from '../db/db.js';
+import { updateDashboardMetrics } from './DashboardController.js';
+
 const loginForm = document.getElementById('login-form');
 const loginSection = document.getElementById('login-section');
 const appWrapper = document.getElementById('app-wrapper');

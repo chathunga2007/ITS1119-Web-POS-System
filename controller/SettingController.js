@@ -1,3 +1,5 @@
+import { users } from '../db/db.js';
+
 const settingForm = document.getElementById('settings-form');
 
 settingForm.addEventListener('submit', (e) => {

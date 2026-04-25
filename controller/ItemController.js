@@ -1,3 +1,7 @@
+import { items } from '../db/db.js';
+import { Item } from '../model/ItemModel.js';
+import { updateDashboardMetrics } from './DashboardController.js';
+
 const generateItemCode = () => {
     if (items.length === 0) return 'I001';
     const lastCode = items[items.length - 1].code;

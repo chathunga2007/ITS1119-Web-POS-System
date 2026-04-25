@@ -1,4 +1,4 @@
-class OrderDetail {
+export class OrderDetail {
     constructor(orderId, itemCode, price, qty, total) {
         this.orderId = orderId;
         this.itemCode = itemCode;

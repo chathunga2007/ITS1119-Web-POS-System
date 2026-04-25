@@ -21,7 +21,6 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
-
   --transition: all 0.3s ease;
 }
 
@@ -44,15 +43,19 @@ body {
 .text-muted {
   color: var(--text-muted);
 }
+
 .text-right {
   text-align: right;
 }
+
 .mt-3 {
   margin-top: 1rem;
 }
+
 .mt-4 {
   margin-top: 1.5rem;
 }
+
 .w-100 {
   width: 100%;
 }
@@ -60,6 +63,7 @@ body {
 .hidden {
   display: none !important;
 }
+
 .flex-row {
   display: flex;
   align-items: center;
@@ -261,6 +265,7 @@ button {
   border: 1px solid var(--danger);
   color: var(--danger);
 }
+
 .btn-danger-outline:hover {
   background: rgba(239, 68, 68, 0.1);
 }
@@ -276,6 +281,7 @@ button {
   padding: 0.5rem;
   font-size: 1.25rem;
 }
+
 .icon-btn:hover {
   color: var(--text-main);
 }
@@ -411,6 +417,7 @@ button {
   gap: 0.5rem;
   flex-wrap: wrap;
 }
+
 .form-actions button {
   flex: 1;
   min-width: 70px;
@@ -436,6 +443,7 @@ button {
   gap: 1.5rem;
   transition: transform 0.2s ease;
 }
+
 .metric-card:hover {
   transform: translateY(-3px);
 }
@@ -454,10 +462,12 @@ button {
   background: rgba(16, 185, 129, 0.15);
   color: var(--success);
 }
+
 .icon-orange {
   background: rgba(245, 158, 11, 0.15);
   color: var(--warning);
 }
+
 .icon-blue {
   background: rgba(59, 130, 246, 0.15);
   color: var(--info);
@@ -500,6 +510,7 @@ button {
   border-radius: var(--radius-sm);
   overflow: hidden;
 }
+
 .search-bar input {
   border: none;
   background: transparent;
@@ -507,9 +518,11 @@ button {
   color: var(--text-main);
   box-shadow: none;
 }
+
 .search-bar input:focus {
   box-shadow: none;
 }
+
 .search-bar button {
   border-radius: 0;
 }

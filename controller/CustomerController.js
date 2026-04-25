@@ -1,3 +1,7 @@
+import { customers } from '../db/db.js';
+import { Customer } from '../model/CustomerModel.js';
+import { updateDashboardMetrics } from './DashboardController.js';
+
 const generateCustomerId = () => {
     if (customers.length === 0) return 'C001';
     const lastId = customers[customers.length - 1].id;

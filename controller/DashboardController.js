@@ -1,3 +1,5 @@
+import { customers, items, orders } from '../db/db.js';
+
 const navBtns = document.querySelectorAll('.nav-btn');
 const iconBtns = document.querySelectorAll('.icon-btn');
 const appViews = document.querySelectorAll('.app-view');
@@ -40,7 +42,7 @@ iconBtns.forEach(btn => {
     });
 });
 
-function updateDashboardMetrics() {
+export function updateDashboardMetrics() {
     document.getElementById('dash-total-customers').innerText = customers.length;
     document.getElementById('dash-total-items').innerText = items.length;
     document.getElementById('dash-total-orders').innerText = orders.length;
