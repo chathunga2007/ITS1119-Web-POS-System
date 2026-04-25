@@ -102,7 +102,7 @@ const validateItemForm = () => {
     return isValid;
 };
 
-const loadItems = (searchTerm = '') => {
+export const loadItems = (searchTerm = '') => {
     const tbody = document.getElementById('item-table-body');
     tbody.innerHTML = '';
 

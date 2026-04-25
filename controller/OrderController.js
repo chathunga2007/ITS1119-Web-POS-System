@@ -2,6 +2,7 @@ import { orders, customers, items, orderDetails } from '../db/db.js';
 import { Order } from '../model/OrderModel.js';
 import { OrderDetail } from '../model/OrderDetailModel.js';
 import { updateDashboardMetrics } from './DashboardController.js';
+import { loadItems } from './ItemController.js';
 
 let cart = [];
 
@@ -22,6 +23,7 @@ const clearOrderForm = () => {
 
     document.getElementById('select-customer').value = '';
     document.getElementById('order-cust-name').value = '';
+    document.getElementById('order-cust-address').value = '';
     document.getElementById('order-cust-salary').value = '';
 
     document.getElementById('select-item').value = '';

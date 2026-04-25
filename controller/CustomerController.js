@@ -95,7 +95,6 @@ const validateCustomerForm = () => {
     if (!isValid && errors.length > 0) {
         alert("Please fix the following errors:\n\n" + errors.join("\n"));
     }
-
     return isValid;
 };
 
@@ -126,6 +125,7 @@ const loadCustomers = (searchTerm = '') => {
                 document.querySelectorAll('#customer-table-body tr').forEach(r => r.classList.remove('selected'));
                 tr.classList.add('selected');
             });
+
             tbody.appendChild(tr);
         }
 
