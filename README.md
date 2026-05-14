@@ -5,27 +5,36 @@ A comprehensive Web-based Point of Sale (POS) system built using HTML, CSS, and 
 ## 📸 Screenshots & Features
 
 ### 🔐 Login
-Secure login interface to access the POS system.
+Secure login interface to authenticate administrators and staff before accessing the POS system. Ensures data privacy and system security with credential validation.
 ![Login Screen](assets/login.png)
 
 ### 📊 Dashboard
-Overview of the system with quick insights and analytics.
+A centralized overview of the system providing real-time insights into business operations. Displays system summaries and quick links to navigate easily across different modules.
 ![Dashboard](assets/dashboard.png)
 
 ### 👥 Customer Management
-Add, update, delete, and search for customer details efficiently.
+A dedicated module to handle all customer-related operations.
+* **Add New Customers:** Register customers with their ID, Name, Address, and Salary.
+* **Update/Delete Records:** Modify existing customer information or remove them entirely from the system.
+* **Search & View:** Quickly search for specific customers using keywords or view all records in a structured table format.
 ![Customer Management](assets/customer.png)
 
 ### 📦 Item Management
-Manage product inventory, including pricing and stock levels.
+Comprehensive inventory management to keep track of store products, stock levels, and pricing.
+* **Add New Items:** Enter items with an Item Code, Name, Price, and available Quantity.
+* **Update/Delete Records:** Update product details, restock quantities, or remove discontinued items easily.
+* **Search & View:** Keep track of the inventory with real-time updates and an easily accessible item table.
 ![Item Management](assets/item.png)
 
 ### 🛒 Order Management
-Process new orders, select customers, add items to the cart, and complete checkouts.
+The core point-of-sale interface for processing transactions and managing sales efficiently.
+* **Select Details:** Seamlessly fetch customer details and item information by selecting their respective IDs and Codes.
+* **Cart Management:** Add selected items to the shopping cart, specify required quantities, and instantly view the total cost.
+* **Checkout:** Process cash payments, calculate the remaining balance accurately, and place the final order.
 ![Order Processing](assets/order.png)
 
 ### ⚙️ Settings
-System configurations and user preferences.
+System configurations and preferences to customize the overall POS experience and manage application-specific settings.
 ![Settings](assets/setting.png)
 
 ## 🔗 Project Links
